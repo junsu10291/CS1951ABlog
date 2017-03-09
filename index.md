@@ -8,9 +8,13 @@ yelp_academic_dataset_tip.json (size: 182.2 MB, records: 946,601)
 yelp_academic_dataset_user.json (size: 1.18 GB, records: 1,029,433)  
 
 ### Overview
-Due to large dataset, we decided to specifically focus on restaurants and parlors in Nevada, mostly in Las Vegas.
-In order to get a clear picture of how the restaurants and stores were distribtued across Nevada, we ran several basic data explorations, visualization, and word by word analysis of the reviews. 
 
+Due to large dataset, we decided to specifically focus on restaurants and parlors in Nevada, mostly in Las Vegas.
+In order to get a clear picture of how the restaurants and stores were distribtued across Nevada, we ran several basic data explorations in various angles, toggling with zip codes, city, and county, map visualization, and word by word analysis of the reviews. 
+
+### The Future
+
+We hope that by analyzing the review, we can spot the pattern of reviews and whether this can predict subsequent year's rating, review counts, and possibly whether that restaurant will prosper or close in the future. In the yelp data, there is no data which exactly show the sales or revenues of the restaurant, which can accurately represent the success of the business. So, we requested additional dataset about restaurant sales to CHD-experts. If we acquire data, we should find a way to combine and clean both datasets, and hope there are more patterns we can spot. In addition to that, we should finish up learning machine learning to find pattern and visualization on multiple parameters. Furthermore, we are trying to look into users, how each user influences subsequent reviews, who the power-reviewer is, and how they rate stores. 
 
 ### Data Exploration
 <img src="NV_cities.png" alt="top20onestar" width="600" height="400">
@@ -20,15 +24,15 @@ This bar graph intuitively shows that our data is mostly concentrated in greater
 <img src="NV_zipcode.png" alt="top20fivestar" width="600" height="400">
 
 Next, we allocated stores by their zip codes, and as expected, even inside Las Vegas, we can see that
-majority of them are located in Downton Las Vegas including the Strip area. 
+majority of them are located in Downton Las Vegas including the Strip area (89109, 89118, 89119). 
 
 <img src="NV_star_valuecount.png" alt="top20onestar" width="600" height="400">
 
-Here, we see a basic distribution of ratigs over the stores in Las Vegas region. 
+Here, we see a basic distribution of ratigs over the stores in Las Vegas region. The mean seems to be low 4, which indicates that most of the stores are viewed favorably and creates a cycle where already well-reviewed restaurants garner more reviews and higher ratings. While badly reviewd stores are shunned ans have fewer ratings. 
 
 <img src="NV_neighborhood.png" alt="top20fivestar" width="600" height="400">
 
-explanation
+Here, we allocated the stores in terms of their county inside Las Vegas. 
 
 <img src="top10words_onestar.png" alt="top20onestar" width="600" height="400">
 <img src="top10words_fivestar.png" alt="top20fivestar" width="600" height="400">

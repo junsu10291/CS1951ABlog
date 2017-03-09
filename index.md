@@ -1,10 +1,10 @@
 # 3/08/2017 (Wednesday) Blog Post I
 
 ### Map Visualization
-<img src="heatmap1.png" alt="heatmap1" width="400" height="400">
-<img src="heatmap2.png" alt="heatmap1" width="400" height="400">
-<img src="scatter1.png" alt="scatter1" width="400" height="400">
-<img src="scatter2.png" alt="scatter2" width="400" height="400">
+<img src="heatmap1.png" alt="heatmap1" width="600" height="400">
+<img src="heatmap2.png" alt="heatmap1" width="600" height="400">
+<img src="scatter1.png" alt="scatter1" width="600" height="400">
+<img src="scatter2.png" alt="scatter2" width="600" height="400">
 
 We can see that
 

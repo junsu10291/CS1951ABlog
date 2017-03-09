@@ -8,6 +8,22 @@ yelp_academic_dataset_tip.json (size: 182.2 MB, records: 946,601)
 yelp_academic_dataset_user.json (size: 1.18 GB, records: 1,029,433)  
 
 ### Data Exploration
+<img src="NV_cities.png" alt="top20onestar" width="600" height="400">
+
+explanation
+
+<img src="NV_zipcode.png" alt="top20fivestar" width="600" height="400">
+
+explanation
+
+<img src="NV_star_valuecount.png" alt="top20onestar" width="600" height="400">
+
+explanation
+
+<img src="NV_neighborhood.png" alt="top20fivestar" width="600" height="400">
+
+explanation
+
 <img src="top10words_onestar.png" alt="top20onestar" width="600" height="400">
 <img src="top10words_fivestar.png" alt="top20fivestar" width="600" height="400">
 

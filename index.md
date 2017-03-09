@@ -7,18 +7,24 @@ yelp_academic_dataset_review.json (size: 3.46 GB, records: 4,153,151)
 yelp_academic_dataset_tip.json (size: 182.2 MB, records: 946,601)  
 yelp_academic_dataset_user.json (size: 1.18 GB, records: 1,029,433)  
 
+### Overview
+Due to large dataset, we decided to specifically focus on restaurants and parlors in Nevada, mostly in Las Vegas.
+In order to get a clear picture of how the restaurants and stores were distribtued across Nevada, we ran several basic data explorations, visualization, and word by word analysis of the reviews. 
+
+
 ### Data Exploration
 <img src="NV_cities.png" alt="top20onestar" width="600" height="400">
 
-explanation
+This bar graph intuitively shows that our data is mostly concentrated in greater Las Vegas area (more than 90%, including Henderson, North Las Vegas).
 
 <img src="NV_zipcode.png" alt="top20fivestar" width="600" height="400">
 
-explanation
+Next, we allocated stores by their zip codes, and as expected, even inside Las Vegas, we can see that
+majority of them are located in Downton Las Vegas including the Strip area. 
 
 <img src="NV_star_valuecount.png" alt="top20onestar" width="600" height="400">
 
-explanation
+Here, we see a basic distribution of ratigs over the stores in Las Vegas region. 
 
 <img src="NV_neighborhood.png" alt="top20fivestar" width="600" height="400">
 

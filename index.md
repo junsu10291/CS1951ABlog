@@ -1,5 +1,19 @@
 # 3/08/2017 (Wednesday) Blog Post I
 
+### Data provided by Yelp
+yelp_academic_dataset_business.json (size: 114.5 MB, records: 144,073)  
+yelp_academic_dataset_checkin.json (size: 46.2 MB, records: 125,533)  
+yelp_academic_dataset_review.json (size: 3.46 GB, records: 4,153,151)  
+yelp_academic_dataset_tip.json (size: 182.2 MB, records: 946,601)  
+yelp_academic_dataset_user.json (size: 1.18 GB, records: 1,029,433)  
+
+### Data Exploration
+<img src="top20words_onestar.png" alt="heatmap1" width="600" height="400">
+<img src="top20words_fivestar.png" alt="heatmap1" width="600" height="400">
+
+We wanted to find out which words are accounted the most for reviews with two extreme star values, 1 and 5.
+For the text analysis, we used sklearn.feature_extraction.text.CountVectorizer to fit and transform text data into a matrix of token counts. By fitting the model using Multinomial Naive Bayes classifier, we were able to get two interesting results for each case.
+
 ### Map Visualization
 <img src="heatmap1.png" alt="heatmap1" width="600" height="400">
 <img src="heatmap2.png" alt="heatmap1" width="600" height="400">
@@ -9,6 +23,7 @@
 Libraries used: [gmplot](https://github.com/vgm64/gmplot), [geoplotlib](https://github.com/andrea-cuttone/geoplotlib)
 
 In order to get a feel for where most of the data points (businesses) are located within the state of Nevada, we decided to plot the points on a map. There are two scatterplots and two heatmaps with varying zoom levels. As expected, we see that most of the datapoints within Nevada are in Las Vegas -- more specifically, the heatmap is more emphasized towards the The Strip (South Las Vegas Boulevard)
+
 
 ## Welcome to GitHub Pages
 

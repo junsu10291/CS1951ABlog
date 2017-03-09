@@ -8,11 +8,15 @@ yelp_academic_dataset_tip.json (size: 182.2 MB, records: 946,601)
 yelp_academic_dataset_user.json (size: 1.18 GB, records: 1,029,433)  
 
 ### Data Exploration
-<img src="top20words_onestar.png" alt="heatmap1" width="600" height="400">
-<img src="top20words_fivestar.png" alt="heatmap1" width="600" height="400">
+<img src="top10words_onestar.png" alt="top20onestar" width="600" height="400">
+<img src="top10words_fivestar.png" alt="top20fivestar" width="600" height="400">
 
 We wanted to find out which words are accounted the most for reviews with two extreme star values, 1 and 5.
 For the text analysis, we used sklearn.feature_extraction.text.CountVectorizer to fit and transform text data into a matrix of token counts. By fitting the model using Multinomial Naive Bayes classifier, we were able to get two interesting results for each case.
+
+Top 10 one-star tokens: 1) ontrac, 2) frechheit, 3) rudent, 4) discriminates, 5) unprofessionally, 6) telemarketing, 7) unprofessional, 8) insinuating, 9) discusting, 10) transcripts
+
+Top 10 five-star tokens: 1) delivioso, 2) smoothest, 3) foodgasm, 4) deelish, 5) eloff, 6) yummmmmm, 7) wac, 8) addicting, 9) uuu, 10) gluch
 
 ### Map Visualization
 <img src="heatmap1.png" alt="heatmap1" width="600" height="400">

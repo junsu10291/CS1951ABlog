@@ -6,7 +6,9 @@
 <img src="scatter1.png" alt="scatter1" width="600" height="400">
 <img src="scatter2.png" alt="scatter2" width="600" height="400">
 
-We can see that
+Libraries used: gmplot (https://github.com/vgm64/gmplot), geoplotlib (https://github.com/andrea-cuttone/geoplotlib)
+
+In order to get a feel for where most of the data points (businesses) are located within the state of Nevada, we decided to plot the points on a map. There are two scatterplots and two heatmaps with varying zoom levels. As expected, we see that most of the datapoints within Nevada are in Las Vegas -- more specifically, the heatmap is more emphasized towards the The Strip (South Las Vegas Boulevard)
 
 ## Welcome to GitHub Pages
 

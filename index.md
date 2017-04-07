@@ -42,9 +42,7 @@ Here are the things we want to tackle/query/ponder next.
 - build a recommender system (recommendation based on text, based on similar restaurants…)
 
 We are also trying to look into whether attributes, categories, and reviews can track ups and downs of a store, and ultimately predict whether it will close or grow bigger in the future. 
-Here's a glimpse of our initial try.
-
-
+Here's a glimpse of our initial try, and it seems...we need a lot more work.
 
 
 # 3/08/2017 (Wednesday) Blog Post I

@@ -19,14 +19,14 @@ However, by looking at the confusion matrix, as seen below, we realized that acc
 there was little information to distinguish rating 1 from 2, and 4 from 5. Since the former would share negative comments, 
 and latter the positive, it seemed reasonable that the classifier was having trouble distinguishing 1 from 2, and 4 from 5. 
 
-<accuracy>
-<confusion mat>
+<img src="5class.png" alt="5class_confusionmat" width="600" height="400">
 
 So, to boost up the accuracy, instead of predicting rating from 1 to 5, we generalized it into three categories:
-positive, neutral, and negative. If the rating was 4 or 5, it was considered positive, 3 to be neutral, and 2 and 1 to be positive. Then, our accuracy went up to about 0.8, which isn't so bad. Now the confusion matrix seems far accurate as can be seen below.
+positive, neutral, and negative. If the rating was 4 or 5, it was considered positive, 3 to be neutral, and 2 and 1 to be positive. Then, our accuracy went up to about 0.8, which isn't so bad. Now the confusion matrix seems far accurate as can be seen below. However, classifying neutral or "3" seems still hard as 
 
-<accuracy>
-<confusion mat>
+<img src="3class.png" alt="3class_confusionmat" width="600" height="400">
+
+To go a step further, just like the ML lab, we printed out influential / counter features in each category.
 
 With additional measures likes stop words, cross-validation, tweaking of other parameters / classfiers, we hope to bring the accuracy rate of review predicting rating close to 0.9.
 

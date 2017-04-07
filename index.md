@@ -32,6 +32,7 @@ To go a step further, just like the ML lab, we printed out influential / counter
 With additional measures likes stop words, cross-validation, tweaking of other parameters / classfiers, we hope to bring the accuracy rate of review predicting rating close to 0.9.
 
 Finally, we attempted to look into whether we could predict whether the restaurant was open or closed (permanently) based on review text. Here are the most important features (~ 65% precision value) that contribute to the classification:
+
 <img src="noimi.png" alt="nomeaning" width="500" height="300">
 There seems to be no obvious pattern here; we need more work.
 

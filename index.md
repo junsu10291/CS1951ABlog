@@ -59,6 +59,10 @@ yelp_academic_dataset_user.json (size: 1.18 GB, records: 1,029,433)
 Due to large dataset, we decided to specifically focus on restaurants and parlors in Nevada, mostly in Las Vegas.
 In order to get a clear picture of how the restaurants and stores were distribtued across Nevada, we ran several basic data explorations in various angles, toggling with zip codes, city, and county, map visualization, and word by word analysis of the reviews. 
 
+<img src="noimi.png" alt="nomeaning" width="4" height="300">
+
+
+
 ### Data Exploration
 <img src="NV_cities.png" alt="top20onestar" width="600" height="400">
 

@@ -61,8 +61,6 @@ In order to get a clear picture of how the restaurants and stores were distribtu
 
 <img src="noimi.png" alt="nomeaning" width="4" height="300">
 
-
-
 ### Data Exploration
 <img src="NV_cities.png" alt="top20onestar" width="600" height="400">
 

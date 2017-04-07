@@ -5,13 +5,12 @@ In blog post I and midterm report, we briefly analyzed which words(tokens) were 
 
 ### Process
 1. After converting JSON data, we realized that each rating had different number of reviews.
-2. In order to equally compare each rating, we first found ratings with least number. 2 was the least rated number with 358550. 
+2. In order to equally compare each rating, we first found a rating with least number. 2 was the least rated number with 358550. 
 3. Then we got first 358550 ratings of each stars.
 4. Using the TfidfVectorizer, we counted each word, and additionally we computed unigram & bigrams of words as well.
-5. Get our input parameter for X, vectors = vectorizer.fit_transform(balanced_text)
+5. Got our input parameter for X, vectors = vectorizer.fit_transform(balanced_text)
 6. Then using train_test_split, which automatically splits input data into train and test data, we divided Xtrain, Xtest, Ytrain, Ytest. (Here, we didn't attempt to do cross validation)
 7. With above parameters, we trained linear SVM and predicted the test ratings.
-
 
 ### Results
 In the first attempt, our accuracy was only 0.62361732769, which quickly disappointed us.
@@ -33,7 +32,18 @@ To go a step further, just like the ML lab, we printed out influential / counter
 With additional measures likes stop words, cross-validation, tweaking of other parameters / classfiers, we hope to bring the accuracy rate of review predicting rating close to 0.9.
 
 ### Next Steps
+Here are the things we want to tackle/query/ponder next.
+- k-means clustering for location
+- k-means clustering for users
+- k-means clustering for review text
+- what happens if we just cluster users?
+- extract latent features
+- k-means clustering of restaurants based on multiple features
+- build a recommender system (recommendation based on text, based on similar restaurants…)
+
 We are also trying to look into whether attributes, categories, and reviews can track ups and downs of a store, and ultimately predict whether it will close or grow bigger in the future. 
+Here's a glimpse of our initial try.
+
 
 
 

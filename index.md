@@ -1,3 +1,16 @@
+# 4/06/2017 (Thursday) Blog Post II
+
+### Previosuly...
+In blog post I and midterm report, we briefly analyzed which words(tokens) were most influential/frequent in 5-star and 1-star ratings. We explored other factors such as relationship between weather (sunny / runny) and number of reviews. Since it rarely rained on Las Vegas, we decided to dive deeper into reviews and ratings (which has far more applications as well) to see whether reviews could acutally predict rating of a store.
+
+### Process
+1. After converting JSON data, we realized that each rating had different number of reviews.
+2. In order to equally compare each rating, we first found ratings with least number. 2 was the least rated number with 358550. 
+3. Then we got first 358550 ratings of each stars.
+4. Using the TfidfVectorizer, we counted 
+
+
+
 # 3/08/2017 (Wednesday) Blog Post I
 
 ### Data provided by Yelp

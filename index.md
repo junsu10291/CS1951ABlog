@@ -44,6 +44,8 @@ Here are the things we want to tackle/query/ponder next.
 We are also trying to look into whether attributes, categories, and reviews can track ups and downs of a store, and ultimately predict whether it will close or grow bigger in the future. 
 Here's a glimpse of our initial try, and it seems...we need a lot more work.
 
+<img src="noimi.png" alt="nomeaning" width="400" height="300">
+
 
 # 3/08/2017 (Wednesday) Blog Post I
 

@@ -1,7 +1,7 @@
 # 4/06/2017 (Thursday) Blog Post II
 
-### Previosuly...
-In blog post I and midterm report, we briefly analyzed which words(tokens) were most influential/frequent in 5-star and 1-star ratings. We explored other factors such as relationship between weather (sunny / runny) and number of reviews. Since it rarely rained on Las Vegas, we decided to dive deeper into reviews and ratings (which has far more applications as well) to see whether reviews could acutally predict rating of a store.
+### Previously...
+In blog post I and midterm report, we briefly analyzed which words (tokens) were most influential in 5-star and 1-star ratings. We explored other factors such as relationship between the weather (sunny / runny) and the number of reviews. Since it rarely rained in Las Vegas, we decided to dive deeper into reviews and ratings: can we use a classifier to predict ratings from reviews?
 
 ### Process
 1. After converting JSON data, we realized that each rating had different number of reviews.
@@ -13,15 +13,15 @@ In blog post I and midterm report, we briefly analyzed which words(tokens) were 
 7. With above parameters, we trained linear SVM and predicted the test ratings.
 
 ### Results
-In the first attempt, our accuracy was only 0.62361732769, which quickly disappointed us.
+In the first attempt, our accuracy was only 0.62361732769, which wasn't awful (20% random guessing for 5 classes).
 However, by looking at the confusion matrix, as seen below, we realized that accuracy was low because
 there was little information to distinguish rating 1 from 2, and 4 from 5. Since the former would share negative comments, 
-and latter the positive, it seemed reasonable that the classifier was having trouble distinguishing 1 from 2, and 4 from 5. 
+and latter the positive, it seemed reasonable that the classifier was having trouble distinguishing between 1 and 2 ratings and between 4 and 5 ratings. 
 
 <img src="5class.png" alt="5class_confusionmat" width="600" height="400">
 
 So, to boost up the accuracy, instead of predicting rating from 1 to 5, we generalized it into three categories:
-positive, neutral, and negative. If the rating was 4 or 5, it was considered positive, 3 to be neutral, and 2 and 1 to be positive. Then, our accuracy went up to about 0.8, which isn't so bad. Now the confusion matrix seems far accurate as can be seen below. However, classifying neutral or "3" seems still hard as (1,2), (4,5) reviews have distinct features, while for "3", the features are often the negation of the features used in either positive or negative reviews such as "not bad" or "not good". Furthermore, it seems users have starkly different standards of "average," which can be an interesting detail to further probe (find out who's rating is inflated or deflated with each word).
+positive, neutral, and negative. If the rating was 4 or 5, it was considered positive, 3 to be neutral, and 2 and 1 to be positive. The result: our accuracy went up to ~0.8. However, classifying as neutral or "3" still seems hard - while (1,2), (4,5) reviews have distinct features, (3) star ratings seem to be harder to distinguish. Furthermore, it seems users have starkly different standards of "average," which can be an interesting detail to further probe (find out who's rating is inflated or deflated with each word).
 
 <img src="3class.png" alt="3class_confusionmat" width="600" height="400">
 
@@ -31,20 +31,27 @@ To go a step further, just like the ML lab, we printed out influential / counter
 
 With additional measures likes stop words, cross-validation, tweaking of other parameters / classfiers, we hope to bring the accuracy rate of review predicting rating close to 0.9.
 
+Finally, we attempted to look into whether we could predict whether the restaurant was open or closed (permanently) based on review text. Here are the most important features (~ 65% precision value) that contribute to the classification:
+<img src="noimi.png" alt="nomeaning" width="500" height="300">
+There seems to be no obvious pattern here; we need more work.
+
+### Why?
+Because all reviews on Yelp are accompanied by ratings, it's plausible to ask why we used a classifer to predict ratings from reviews:
+1) Further data exploration - we observed what features are important for classifying each review as negative / positive / neutral. Since we might attempt to extract latent features (LDA) later on, this might be helpful.
+
+2) Analyzing sentiment on other websites: if the restaurant / business has its own website with reviews (but no ratings), this classifer could give a rough estimate of the overall rating from that website.
+
+3) Building a recommendation engine: the work we did in this post could be helpful in developing a recommendation engine (which might be our end goal). For example, we might attempt to cluster restaurants based on review text (as one feature).
+
 ### Next Steps
 Here are the things we want to tackle/query/ponder next.
-- k-means clustering for location
-- k-means clustering for users
-- k-means clustering for review text
-- what happens if we just cluster users?
-- extract latent features
-- k-means clustering of restaurants based on multiple features
-- build a recommender system (recommendation based on text, based on similar restaurants…)
-
-We are also trying to look into whether attributes, categories, and reviews can track ups and downs of a store, and ultimately predict whether it will close or grow bigger in the future. 
-Here's a glimpse of our initial try, and it seems...we need a lot more work.
-
-<img src="noimi.png" alt="nomeaning" width="500" height="300">
+- k-means clustering on location (lat, lng)
+- k-means clustering on users
+- k-means clustering on review text (worth considering how to represent restaurants as one vector, given n review vectors)
+- Clustering users (can we find patterns? social groups?0
+- extract latent features from review text
+- After exploring the above: k-means clustering of restaurants based on multiple features
+- Web app: Build a recommendation system (recommendation based on text, based on similar restaurants, etc)
 
 
 # 3/08/2017 (Wednesday) Blog Post I

@@ -22,11 +22,13 @@ and latter the positive, it seemed reasonable that the classifier was having tro
 <img src="5class.png" alt="5class_confusionmat" width="600" height="400">
 
 So, to boost up the accuracy, instead of predicting rating from 1 to 5, we generalized it into three categories:
-positive, neutral, and negative. If the rating was 4 or 5, it was considered positive, 3 to be neutral, and 2 and 1 to be positive. Then, our accuracy went up to about 0.8, which isn't so bad. Now the confusion matrix seems far accurate as can be seen below. However, classifying neutral or "3" seems still hard as 
+positive, neutral, and negative. If the rating was 4 or 5, it was considered positive, 3 to be neutral, and 2 and 1 to be positive. Then, our accuracy went up to about 0.8, which isn't so bad. Now the confusion matrix seems far accurate as can be seen below. However, classifying neutral or "3" seems still hard as (1,2), (4,5) reviews have distinct features, while for "3", the features are often the negation of the features used in either positive or negative reviews such as "not bad" or "not good". Furthermore, it seems users have starkly different standards of "average," which can be an interesting detail to further probe (find out who's rating is inflated or deflated with each word).
 
 <img src="3class.png" alt="3class_confusionmat" width="600" height="400">
 
-To go a step further, just like the ML lab, we printed out influential / counter features in each category.
+To go a step further, just like the ML lab, we printed out influential / counter features in each category. While nothing stands out, "be disappinted" as a positive feature in positive side is confusing us. It seems that the word "disappointed" is also categorized as positive as both "not disappointed" and "never disappointed" are rated highly positive.
+
+<img src="features.png" alt="features" width="600" height="800">
 
 With additional measures likes stop words, cross-validation, tweaking of other parameters / classfiers, we hope to bring the accuracy rate of review predicting rating close to 0.9.
 

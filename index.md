@@ -22,15 +22,15 @@ It is often very annoying to deal with a large number of reviews especially when
 ### Results
 N = number of topics 
 N  = 10 
-<img src="4.png" width="900" height="400">
+<img src="4.png" width="900" height="300">
 I would assign 'chicken restaurant' topic to (7, '0.014*"order" + 0.009*"like" + 0.009*"food" + 0.008*"chicken" + 0.007*"good"').
 
 N  = 20 
-<img src="5.png" width="900" height="400">
+<img src="5.png" width="900" height="300">
 I would assign 'accomodation' topic to (18, '0.018*"room" + 0.011*"stay" + 0.009*"hotel" + 0.008*"like" + 0.007*"can"').
 
 N  = 30 
-<img src="6.png" width="900" height="400">
+<img src="6.png" width="900" height="300">
 I would assign 'thai restaurant' topic to (7, '0.012*"thai" + 0.007*"noodl" + 0.005*"rice" + 0.004*"ramen" + 0.004*"chicken"').
 
 ### Next Steps

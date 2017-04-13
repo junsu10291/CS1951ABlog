@@ -3,24 +3,41 @@
 ### Previously...
 In blog post II, we classified the reviews into three groups--positive, neutral, and negative-- and explored influential and counter features in each group. As we have said in previous post, we did clustering based on reviews, so that we can use the data for our recommendation system. 
 
+### LDA
+Latent Dirichlet allocation (LDA) is a topic modeling technique of discovering topics in a text corpus. 
 
-
+### Purpose
+It is often very annoying to deal with a large number of reviews especially when they are long and dense. It would be much more convenient for the readers to access the reviews if they were previously classified into different categories of users’ interests. Potential customers who are interested in reading reviews about ‘customer service’ or ‘healthy food’ can simply refine their search by the topic of their interests. Moreover, we can use this trained model to automate the process of predicting the topic of new reviews. 
 
 ### Process
-1.
-
-
+1. Sample 10,000 out of 4,153,150 review texts since training LDA model takes long time.
+<img src="1.png" width="600" height="400">
+2. Clean the sampled review texts by lower casing all characters, removing stopping words(get_stop_words) and merging words that essentially have the same meaning (PorterStemmer).
+<img src="2.png" width="600" height="400">
+3. Construct a document-term matrix that shows the frequency of words in each review text.
+<img src="3.png" width="600" height="400">
+4. Train three LDA models with different parameter values (number of topics).
+5. Print out the topics and check the result of each model. 	
 
 ### Results
+N = number of topics 
+N  = 10 
+<img src="4.png" width="600" height="400">
+I would assign 'chicken restaurant' topic to (7, '0.014*"order" + 0.009*"like" + 0.009*"food" + 0.008*"chicken" + 0.007*"good"').
 
+N  = 20 
+<img src="5.png" width="600" height="400">
+I would assign 'accomodation' topic to (18, '0.018*"room" + 0.011*"stay" + 0.009*"hotel" + 0.008*"like" + 0.007*"can"').
 
+N  = 30 
+<img src="6.png" width="600" height="400">
+I would assign 'thai restaurant' topic to (7, '0.012*"thai" + 0.007*"noodl" + 0.005*"rice" + 0.004*"ramen" + 0.004*"chicken"').
 
 ### Next Steps
-- Decision on which features we will use for k-means clustering and LDA
-- Further Clustering with users based on the restaurants they rate
+- Assigning all the reviews to their corresponding clusters (topics) and evaluating the accuracy of our models. 
+- More feature engineering on raw review texts to increase the accuracy.
+- Further Clustering with users based on their ratings
 - Web app: Build a recommendation system (recommendation based on free-form text or user selection)
-
-
 
 
 # 4/06/2017 (Thursday) Blog Post II

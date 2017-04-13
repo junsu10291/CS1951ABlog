@@ -1,3 +1,28 @@
+# 4/12/2017 (Wednesday) Blog Post III
+
+### Previously...
+In blog post II, we classified the reviews into three groups--positive, neutral, and negative-- and explored influential and counter features in each group. As we have said in previous post, we did clustering based on reviews, so that we can use the data for our recommendation system. 
+
+
+
+
+### Process
+1.
+
+
+
+### Results
+
+
+
+### Next Steps
+- Decision on which features we will use for k-means clustering and LDA
+- Further Clustering with users based on the restaurants they rate
+- Web app: Build a recommendation system (recommendation based on free-form text or user selection)
+
+
+
+
 # 4/06/2017 (Thursday) Blog Post II
 
 ### Previously...

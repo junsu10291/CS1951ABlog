@@ -11,26 +11,26 @@ It is often very annoying to deal with a large number of reviews especially when
 
 ### Process
 1. Sample 10,000 out of 4,153,150 review texts since training LDA model takes long time.
-<img src="1.png" width="600" height="400">
+<img src="1.png" width="900" height="400">
 2. Clean the sampled review texts by lower casing all characters, removing stopping words(get_stop_words) and merging words that essentially have the same meaning (PorterStemmer).
-<img src="2.png" width="600" height="400">
+<img src="2.png" width="900" height="400">
 3. Construct a document-term matrix that shows the frequency of words in each review text.
-<img src="3.png" width="600" height="400">
+<img src="3.png" width="900" height="400">
 4. Train three LDA models with different parameter values (number of topics).
 5. Print out the topics and check the result of each model. 	
 
 ### Results
 N = number of topics 
 N  = 10 
-<img src="4.png" width="600" height="400">
+<img src="4.png" width="900" height="400">
 I would assign 'chicken restaurant' topic to (7, '0.014*"order" + 0.009*"like" + 0.009*"food" + 0.008*"chicken" + 0.007*"good"').
 
 N  = 20 
-<img src="5.png" width="600" height="400">
+<img src="5.png" width="900" height="400">
 I would assign 'accomodation' topic to (18, '0.018*"room" + 0.011*"stay" + 0.009*"hotel" + 0.008*"like" + 0.007*"can"').
 
 N  = 30 
-<img src="6.png" width="600" height="400">
+<img src="6.png" width="900" height="400">
 I would assign 'thai restaurant' topic to (7, '0.012*"thai" + 0.007*"noodl" + 0.005*"rice" + 0.004*"ramen" + 0.004*"chicken"').
 
 ### Next Steps

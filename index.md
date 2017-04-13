@@ -20,8 +20,7 @@ It is often very annoying to deal with a large number of reviews especially when
 5. Print out the topics and check the result of each model. 	
 
 ### Results
-N = number of topics 
-N  = 10 
+N (number of topics)  = 10 
 <img src="4.png" width="900" height="300">
 I would assign 'chicken restaurant' topic to (7, '0.014*"order" + 0.009*"like" + 0.009*"food" + 0.008*"chicken" + 0.007*"good"').
 

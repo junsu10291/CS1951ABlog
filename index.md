@@ -1,3 +1,71 @@
+# 4/25/2017 (Wednesday) Blog Post IV
+In this blog post, our focus was on running k-means clustering on reviews found in the Yelp Dataset. In order to work with a feasible set of data, we filter out restaurants with < 100 reviews and permanently closed restaurants. We end up with 4613 restaurants in Nevada (mostly centered around Las Vegas) with a total of 727,438 reviews. In addition, we create a database with two tables - business and reviews. As is expected, the business table consists of business information pertaining to restaurants (address, location, business_id, etc) and reviews contains information such as user_id, review_id, business_id, etc. This will be helpful in our future work when we need to join different information (reviews & restaurants).
+
+### Goal: K-means clustering to cluster documents
+K-means clustering on text documents is often a challenging process due to the high dimensionality of documents. We will be attempting to cluster reviews based on k-means clustering and generate visualizations through the use of various libraries: scikit-learn, pandas, NLTK, matplotlib and more.
+
+### Amazon AWS EC2
+Since it is difficult to run intensive computations on our local machines (memory isn't sufficient), we end up using an EC2 Instance on Amazon's AWS. We use a m3.2xlarge instance, which has ~30 GB RAM (+20GB allocated SSD), which turned out to be enough for our computations.
+
+### First attempt
+We retrieve our data from the database and convert it to a list containing all of our reviews
+<img src="sql_data.png" width="600" height="400">
+
+We need to extract features from the dataset: we use scikit-learn's TFIDFVectorizer, which will output a sparse matrix. We use the default values for most and some custom values (max_df = 1.0, min_df = 0.0, max_features = 100,000, use_idf = false)
+
+<img src="features1.png" width="600" height="400">
+
+The # of features for each vector is > 100,000, but it is cut off at the limit (max_features). Next, we run MiniBatchKMeans clustering on the vectors (minibatch is much more computationally efficient for large datasets and only minimally less optimal) and generate the top terms per cluster (we use the k-means++ algorithm for centroid initialization, which will give us significantly better initial cluster centers relative to random generation -- thus there is a lower probability that the k-means algorithm will get stuck at a less than optimal local minima):
+
+<img src="kmeans1.png" width="600" height="400">
+<img src="top_results1.png" width="600" height="400">
+
+The clustering converges after 919 iterations. Examining the top terms per cluster, we see that the clustering did a pretty awful job - common words such as food, place, restaurant are littered throughout the top terms.
+
+### Several attempts later
+After playing around with various parameters, we make several revisions:
+First, when we use the TFIDFVectorizer, we set max_df = 0.7 and min_df = 100 (all terms with document frequency > 0.7 will be excluded -- that is, all terms that are in more than 70% of the documents will not be in the feature set -- and all terms that are in less than 100 documents will be excluded as well. We also set use_idf to True to enable inverse-document-frequency weighting in order to get features that are considered to be more important throughout the entire corpus. 
+
+<img src="features2.png" width="600" height="400">
+
+The result is that we get a significantly less amount of features. However, 12,176 is still an extremely large feature set to work with in k-means clustering, thus we use LSA to reduce dimensionality:
+
+<img src="lsa_200.png" width="600" height="400">
+
+We set the parameter so that the algorithm will reduce the feature set to 200 features; this seems to output a feature set that explains 25% of the variance (100 features will explain ~15% of the variance). Next, we run the MiniBatchKMeans again on this feature set (here, we use K = 15 and init_size = 3000):
+
+<img src="k_means2.png" width="600" height="400">
+<img src="top_results2.png" width="600" height="400">
+
+It seems as if the algorithm is doing a much better job at creating clusters now. After multiple rounds of tweaking, the most influential ones seem to be: using IDF to determine weights, using feasible max_df, min_df cutoffs, and using LSA to reduce the dimensions. Briefly glancing over the top terms per cluster, we can note several observations:
+Cluster 0 - chicken wings, fries, beer, fun => beer & fun
+Cluster 1 - sushi rolls fish => japanese 
+Cluster 7 - breakfast, eggs, pancakes, coffee => breakfast
+Cluster 8 - tacos, shrimp, salsa, chips => Mexican
+Some other ones include burger & fries, good atmosphere, pizza & cheese, buffet & crab, etc
+
+On the otherhand, some of the clusters still seem to be too generic: e.g. Cluster 5 (time food experience good service got table really restaurant wait). Perhaps we need more tweaking of the cutoff parameters and the number of clusters.
+
+### Brief visualization
+Since we want to see if the clusters make sense visually, we attempt to draw some plots with matplotlib. Since it is extremely challenging to efficiently (visually) plot high-dimensional clusters, we use LSA to create a 2-d (voronoi-like) plot:
+
+<img src="plot.png" width="600" height="400">
+
+The results, as interesting as they may be, don't seem to be good. The clusters keep breaking up and there are two enormous clusters - we can probably predict that as we increase the number of clusters, the two big clusters will simply transform into more and more little ones.
+
+<img src="plot2.png" width="600" height="400">
+
+Apparently not. It seems as if the clusters on the right do follow our hypothesis, but the clusters on the left begin to break up as well. The problem is that with this visualization and with our use of LSA, it's really hard to figure out what is happening. When we actually run our k-means clustering, we use 200 feautures - however, the plot is only using 2 features. As a result, what is happening in the plots may not line up with what actually happened in our clustering results.
+
+### Next steps
+We have a lot to do:
+1) Figure out a way to measure error (apart from inertia). Can we come up with a metric for error in this clustering?
+2) Figure out a better K - this may be difficult due to high dimensionality, but we plan to use silhoutte analysis (http://scikit-learn.org/stable/auto_examples/cluster/plot_kmeans_silhouette_analysis.html)
+3) Try out various things to improve the algorithm:
+  - LDA, MDS (multidimensional scaling) for dimension reduction - we can try to use MDS as another way to plot the clusters on a 2d graph by converting the distance matrix to a 2d matrix
+  - Preprocessing: more stopwords, stemming, tokenizing, n-grams: we will see if these methods will increase the quality of clustering
+4) Visualizations: can we more efficiently plot the clusters so that we can more easily visually analyze our clusters?
+
 # 4/12/2017 (Wednesday) Blog Post III
 
 ### Previously...

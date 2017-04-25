@@ -13,7 +13,7 @@ We retrieve our data from the database and convert it to a list containing all o
 
 We need to extract features from the dataset: we use scikit-learn's TFIDFVectorizer, which will output a sparse matrix. We use the default values for most and some custom values (max_df = 1.0, min_df = 0.0, max_features = 100,000, use_idf = false)
 
-<img src="features1.png" width="600" height="400">
+<img src="feature1.png" width="600" height="400">
 
 The # of features for each vector is > 100,000, but it is cut off at the limit (max_features). Next, we run MiniBatchKMeans clustering on the vectors (minibatch is much more computationally efficient for large datasets and only minimally less optimal) and generate the top terms per cluster (we use the k-means++ algorithm for centroid initialization, which will give us significantly better initial cluster centers relative to random generation -- thus there is a lower probability that the k-means algorithm will get stuck at a less than optimal local minima):
 

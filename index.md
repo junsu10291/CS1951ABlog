@@ -37,12 +37,12 @@ We set the parameter so that the algorithm will reduce the feature set to 200 fe
 <img src="kmeans2.png" width="800" height="400">
 <img src="top_results2.png" width="800" height="400">
 
-It seems as if the algorithm is doing a much better job at creating clusters now. After multiple rounds of tweaking, the most influential ones seem to be: using IDF to determine weights, using feasible max_df, min_df cutoffs, and using LSA to reduce the dimensions. Briefly glancing over the top terms per cluster, we can note several observations:
-Cluster 0 - chicken wings, fries, beer, fun => beer & fun
-Cluster 1 - sushi rolls fish => japanese 
-Cluster 7 - breakfast, eggs, pancakes, coffee => breakfast
-Cluster 8 - tacos, shrimp, salsa, chips => Mexican
-Some other ones include burger & fries, good atmosphere, pizza & cheese, buffet & crab, etc
+It seems as if the algorithm is doing a much better job at creating clusters now. After multiple rounds of tweaking, the most influential ones seem to be: using IDF to determine weights, using feasible max_df, min_df cutoffs, and using LSA to reduce the dimensions. Briefly glancing over the top terms per cluster, we can observe the following:
+- Cluster 0 - chicken wings, fries, beer, fun => beer & fun
+- Cluster 1 - sushi rolls fish => japanese 
+- Cluster 7 - breakfast, eggs, pancakes, coffee => breakfast
+- Cluster 8 - tacos, shrimp, salsa, chips => Mexican
+- Some other ones include burger & fries, good atmosphere, pizza & cheese, buffet & crab, etc
 
 On the otherhand, some of the clusters still seem to be too generic: e.g. Cluster 5 (time food experience good service got table really restaurant wait). Perhaps we need more tweaking of the cutoff parameters and the number of clusters.
 

@@ -1,5 +1,5 @@
 # 4/25/2017 (Wednesday) Blog Post IV
-In this blog post, our focus was on running k-means clustering on reviews found in the Yelp Dataset. In order to work with a feasible set of data, we filter out restaurants with < 100 reviews and permanently closed restaurants. We end up with 4613 restaurants in Nevada (mostly centered around Las Vegas) with a total of 727,438 reviews. In addition, we create a database with two tables - business and reviews. As is expected, the business table consists of business information pertaining to restaurants (address, location, business_id, etc) and reviews contains information such as user_id, review_id, business_id, etc. This will be helpful in our future work when we need to join different information (reviews & restaurants).
+In this blog post, our focus was on running k-means clustering on reviews found in the Yelp Dataset. In order to work with a feasible set of data, we filter out permanently closed restaurants and those with < 100 reviews. We end up with 4613 restaurants in Nevada (mostly centered around Las Vegas) with a total of 727,438 reviews. In addition, we create a database with two tables - business and reviews. As is expected, the business table consists of business information pertaining to restaurants (address, location, business_id, etc) and reviews contains information such as user_id, review_id, business_id, etc. This will be helpful in our future work when we need to join different information (reviews & restaurants).
 
 ### Goal: K-means clustering to cluster documents
 K-means clustering on text documents is often a challenging process due to the high dimensionality of documents. We will be attempting to cluster reviews based on k-means clustering and generate visualizations through the use of various libraries: scikit-learn, pandas, NLTK, matplotlib and more.
@@ -58,13 +58,20 @@ The results, as interesting as they may be, don't seem to be good. The clusters 
 Apparently not. It seems as if the clusters on the right do follow our hypothesis, but the clusters on the left begin to break up as well. The problem is that with this visualization and with our use of LSA, it's really hard to figure out what is happening. When we actually run our k-means clustering, we use 200 feautures - however, the plot is only using 2 features. As a result, what is happening in the plots may not line up with what actually happened in our clustering results.
 
 ### Next steps
-We have a lot to do:
 1) Figure out a way to measure error (apart from inertia). Can we come up with a metric for error in this clustering?
 2) Figure out a better K - this may be difficult due to high dimensionality, but we plan to use silhoutte analysis (http://scikit-learn.org/stable/auto_examples/cluster/plot_kmeans_silhouette_analysis.html)
 3) Try out various things to improve the algorithm:
   - LDA, MDS (multidimensional scaling) for dimension reduction - we can try to use MDS as another way to plot the clusters on a 2d graph by converting the distance matrix to a 2d matrix
   - Preprocessing: more stopwords, stemming, tokenizing, n-grams: we will see if these methods will increase the quality of clustering
 4) Visualizations: can we more efficiently plot the clusters so that we can more easily visually analyze our clusters?
+
+After we finalize our clustering for reviews, we can do the following:
+1) Cluster restaurants based on these review clustering
+2) Cluser users based on these reviews, then use the resulting user clusters to cluster restaurants
+3) Different clustering methods (hierarchical)
+4) Recommendations 
+  - given free form text, can we vectorize it and assign it a cluster to provide recommendations?
+  - recommendations using restaurant clustering in 1) and 2)
 
 # 4/12/2017 (Wednesday) Blog Post III
 

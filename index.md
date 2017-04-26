@@ -9,16 +9,16 @@ Since it is difficult to run intensive computations on our local machines (memor
 
 ### First attempt
 We retrieve our data from the database and convert it to a list containing all of our reviews
-<img src="sql_data.png" width="600" height="400">
+<img src="sql_data.png" width="800" height="400">
 
 We need to extract features from the dataset: we use scikit-learn's TFIDFVectorizer, which will output a sparse matrix. We use the default values for most and some custom values (max_df = 1.0, min_df = 0.0, max_features = 100,000, use_idf = false)
 
-<img src="feature1.png" width="600" height="400">
+<img src="feature1.png" width="800" height="400">
 
 The # of features for each vector is > 100,000, but it is cut off at the limit (max_features). Next, we run MiniBatchKMeans clustering on the vectors (minibatch is much more computationally efficient for large datasets and only minimally less optimal) and generate the top terms per cluster (we use the k-means++ algorithm for centroid initialization, which will give us significantly better initial cluster centers relative to random generation -- thus there is a lower probability that the k-means algorithm will get stuck at a less than optimal local minima):
 
-<img src="kmeans1.png" width="600" height="400">
-<img src="top_results1.png" width="600" height="400">
+<img src="kmeans1.png" width="800" height="400">
+<img src="top_results1.png" width="800" height="400">
 
 The clustering converges after 919 iterations. Examining the top terms per cluster, we see that the clustering did a pretty awful job - common words such as food, place, restaurant are littered throughout the top terms.
 
@@ -26,16 +26,16 @@ The clustering converges after 919 iterations. Examining the top terms per clust
 After playing around with various parameters, we make several revisions:
 First, when we use the TFIDFVectorizer, we set max_df = 0.7 and min_df = 100 (all terms with document frequency > 0.7 will be excluded -- that is, all terms that are in more than 70% of the documents will not be in the feature set -- and all terms that are in less than 100 documents will be excluded as well. We also set use_idf to True to enable inverse-document-frequency weighting in order to get features that are considered to be more important throughout the entire corpus. 
 
-<img src="features2.png" width="600" height="400">
+<img src="features2.png" width="800" height="400">
 
 The result is that we get a significantly less amount of features. However, 12,176 is still an extremely large feature set to work with in k-means clustering, thus we use LSA to reduce dimensionality:
 
-<img src="lsa_200.png" width="600" height="400">
+<img src="lsa_200.png" width="800" height="400">
 
 We set the parameter so that the algorithm will reduce the feature set to 200 features; this seems to output a feature set that explains 25% of the variance (100 features will explain ~15% of the variance). Next, we run the MiniBatchKMeans again on this feature set (here, we use K = 15 and init_size = 3000):
 
-<img src="k_means2.png" width="600" height="400">
-<img src="top_results2.png" width="600" height="400">
+<img src="k_means2.png" width="800" height="400">
+<img src="top_results2.png" width="800" height="400">
 
 It seems as if the algorithm is doing a much better job at creating clusters now. After multiple rounds of tweaking, the most influential ones seem to be: using IDF to determine weights, using feasible max_df, min_df cutoffs, and using LSA to reduce the dimensions. Briefly glancing over the top terms per cluster, we can note several observations:
 Cluster 0 - chicken wings, fries, beer, fun => beer & fun
@@ -49,11 +49,11 @@ On the otherhand, some of the clusters still seem to be too generic: e.g. Cluste
 ### Brief visualization
 Since we want to see if the clusters make sense visually, we attempt to draw some plots with matplotlib. Since it is extremely challenging to efficiently (visually) plot high-dimensional clusters, we use LSA to create a 2-d (voronoi-like) plot:
 
-<img src="plot.png" width="600" height="400">
+<img src="plot.png" width="800" height="400">
 
 The results, as interesting as they may be, don't seem to be good. The clusters keep breaking up and there are two enormous clusters - we can probably predict that as we increase the number of clusters, the two big clusters will simply transform into more and more little ones.
 
-<img src="plot2.png" width="600" height="400">
+<img src="plot2.png" width="800" height="400">
 
 Apparently not. It seems as if the clusters on the right do follow our hypothesis, but the clusters on the left begin to break up as well. The problem is that with this visualization and with our use of LSA, it's really hard to figure out what is happening. When we actually run our k-means clustering, we use 200 feautures - however, the plot is only using 2 features. As a result, what is happening in the plots may not line up with what actually happened in our clustering results.
 

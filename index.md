@@ -34,7 +34,7 @@ The result is that we get a significantly less amount of features. However, 12,1
 
 We set the parameter so that the algorithm will reduce the feature set to 200 features; this seems to output a feature set that explains 25% of the variance (100 features will explain ~15% of the variance). Next, we run the MiniBatchKMeans again on this feature set (here, we use K = 15 and init_size = 3000):
 
-<img src="k_means2.png" width="800" height="400">
+<img src="kmeans2.png" width="800" height="400">
 <img src="top_results2.png" width="800" height="400">
 
 It seems as if the algorithm is doing a much better job at creating clusters now. After multiple rounds of tweaking, the most influential ones seem to be: using IDF to determine weights, using feasible max_df, min_df cutoffs, and using LSA to reduce the dimensions. Briefly glancing over the top terms per cluster, we can note several observations:

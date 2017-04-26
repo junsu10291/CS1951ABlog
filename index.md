@@ -51,7 +51,7 @@ Since we want to see if the clusters make sense visually, we attempt to draw som
 
 <img src="plot.png" width="800" height="400">
 
-The results, as interesting as they may be, don't seem to be good. The clusters keep breaking up and there are two enormous clusters - we can probably predict that as we increase the number of clusters, the two big clusters will simply transform into more and more little ones.
+The results, as interesting as they may be, don't seem to be good. The clusters keep breaking up and there are two enormous clusters - we can probably predict that as we increase the number of clusters, the slices of small clusters will increase correspondingly beginning on the right-hand side
 
 <img src="plot2.png" width="800" height="400">
 

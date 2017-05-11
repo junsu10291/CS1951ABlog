@@ -1,0 +1,42 @@
+input[type="submit"] {
+	display:block;
+	margin:0;
+	width:100%;
+	font-family:;
+	font-size: 18px;
+}
+
+body {
+    background-color: powderblue;
+    text-align: center;
+}
+
+.title {
+  text-transform: uppercase;
+  color: #1717C9;
+  font-weight: bold;
+  font-size: 24px;
+  text-align: center;
+}
+
+form {
+  text-align: center;
+ }
+
+ .box {
+  border: 2px solid #000; 
+  border-radius:20px;
+  padding: 30px;
+  display: block;
+  width:70%;
+  background-color:#F4F4F4;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  position:absolute;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 80%;
+  height: 80%;
+}

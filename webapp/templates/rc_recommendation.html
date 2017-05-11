@@ -1,0 +1,74 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href= "{{url_for('static', filename='css/bootstrap.css')}}">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" type="text/css" href= "{{url_for('static', filename='css/stylish-portfolio.css')}}">
+
+
+    <!-- Custom Fonts -->
+    <link rel="stylesheet" type="text/css" href= "{{url_for('static', filename='font-awesome/css/font-awesome.min.css')}}">
+    <link rel="stylesheet" type="text/css" href= "//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="{{url_for('static', filename='js/plotlyjs-bundle.js')}}"></script>
+<script type="text/javascript" src="{{url_for('static', filename='js/figure.js')}}"></script>
+
+</head>
+     <body>
+     
+    <div class="row" style="margin: 0 0 0 0">
+    	<h1>Recommendations based on restaurant clustering data::</h1>
+    </div>
+
+    <div class="row" style="margin: 0 0 0 0">
+    	<div class="col-md-6"> 
+    	<p>Your Query: {{recommendations.query}}
+        </br>Best Cluster (based on your query): {{recommendations.best_cluster}}
+        </br>Topics from Best Cluster: {{recommendations.associated_terms}}</p>
+
+          {% for i in range(20)%}
+                <strong>{{i+1}}. {{recommendations['name'][i]}}</strong> </br> Category: {{recommendations['category'][i]}} </br> Address: {{recommendations['address'][i]}} </br></br>
+        {% endfor %}
+
+        
+
+    	</div>
+
+    	<div class="col-md-6">
+
+            <div id="8b981dd2-8ffa-405b-9542-1bb34ec79fe0" style="width: 100%; height: 100%;" class="plotly-graph-div"></div>
+    		<a href="/">Go Back To HomePage</a>
+    	</div>
+    </div>
+
+    
+    <script type="text/javascript">
+            (function(){
+                window.PLOTLYENV={'BASE_URL': 'https://plot.ly'};
+
+                var gd = document.getElementById('8b981dd2-8ffa-405b-9542-1bb34ec79fe0')
+                var resizeDebounce = null;
+
+                function resizePlot() {
+                    var bb = gd.getBoundingClientRect();
+                    Plotly.relayout(gd, {
+                        width: bb.width,
+                        height: bb.height
+                    });
+                }
+
+                Plotly.plot(gd,  {
+                    data: figure.data,
+                    layout: figure.layout,
+                    frames: figure.frames,
+                    config: {"mapboxAccessToken": "pk.eyJ1IjoiY2hyaWRkeXAiLCJhIjoiY2lxMnVvdm5iMDA4dnhsbTQ5aHJzcGs0MyJ9.X9o_rzNLNesDxdra4neC_A", "linkText": "Export to plot.ly", "showLink": true}
+                });
+                
+           }());
+        </script>
+
+     </body>
+
+
+
+</html>

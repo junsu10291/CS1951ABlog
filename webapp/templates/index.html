@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>CS1951A Final Project</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" type="text/css" href= "{{url_for('static', filename='css/bootstrap.css')}}">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" type="text/css" href= "{{url_for('static', filename='css/stylish-portfolio.css')}}">
+
+    <!-- Custom Fonts -->
+    <link rel="stylesheet" type="text/css" href= "{{url_for('static', filename='font-awesome/css/font-awesome.min.css')}}">
+    <link rel="stylesheet" type="text/css" href= "//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <a id="menu-toggle" href="#" class="btn btn-dark btn-lg toggle"><i class="fa fa-bars"></i></a>
+    <nav id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+            <a id="menu-close" href="#" class="btn btn-light btn-lg pull-right toggle"><i class="fa fa-times"></i></a>
+            <li class="sidebar-brand">
+                <a href="#home" onclick=$("#menu-close").click();>Home</a>
+            </li>
+            <li>
+                <a href="#recommendation" onclick=$("#menu-close").click();>Recommendation System</a>
+            </li>
+            <li>
+                <a href="#datavis" onclick=$("#menu-close").click();>Data Visualization</a>
+            </li>
+            <li>
+                <a href="#reference" onclick=$("#menu-close").click();>Reference</a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Header -->
+    <header id="home" class="header">
+        <div class="text-vertical-center">
+            <span class='fa-quote-left'>
+            <h1 style='color:white;text-shadow: -1.5px 0 black, 0 1.5px black, 1.5px 0 black, 0 -1.5px black;'>Restaurant Recommendation System</h1> 
+            <h2 style='color:white;text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;'>Using Yelp Reviews Only (ver. Las Vegas)</h2>
+            </br>
+            </br>
+            </br>
+            </br>
+            <a href="#recommendation" class="btn btn-dark btn-lg" style='font-size: 2em'>GET STARTED</a>
+        </div>
+    </header>
+
+    <!-- About -->
+    <section id="recommendation" class="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2>Our Restaurant Recommendation System</h2>
+                </div>
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container -->
+    </section>
+
+    <!-- Services -->
+    <!-- The circle icons use Font Awesome's stacked icon classes. For more information, visit http://fontawesome.io/examples/ -->
+    <section id="recommendation2" class="services bg-primary">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-lg-10 col-lg-offset-1">
+                    <h2>Try Two Different Methods</h2>
+                    <hr class="small">
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6">
+                            <div class="service-item">
+                                <span class='fa-stack fa-lg'>
+                                    <i class='fa fa-circle fa-stack-2x'></i>
+                                    <i class='fa fa-inverse fa-stack-1x' style="color:black;font-size: 1em;font-family: sans-serif;"><strong>I</strong></i>
+                                </span>
+                                </br></br></br>
+                                <span style='font-size: 5em;' class="glyphicon glyphicon-cutlery"></span>
+                                <h4>Get Search Term Based</br>Restaurant Recommendations</h4>
+                                <form action="." method="POST">
+                                    <input style="color:black" type="text" name="text_rc">
+                                    </br></br>
+                                    <input class="btn btn-lg btn-dark" type="submit" name="submit" value="Search by Keywords">
+                                </form>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6">
+                            <div class="service-item">
+                                <span class='fa-stack fa-lg'>
+                                    <i class='fa fa-circle fa-stack-2x'></i>
+                                    <i class='fa fa-inverse fa-stack-1x' style="color:black;font-size: 1em;font-family: sans-serif;"><strong>II</strong></i>
+                                </span>
+                                </br></br></br>
+                                <span style='font-size: 5em;' class="glyphicon glyphicon-user"></span>
+                                <h4>Get Personalized Restaurant Recommendations</br>from Users with Similar Tastes</h4>
+                                <form action="." method="POST">
+                                    <input style="color:black" type="text" name="text_uc">
+                                    </br></br>
+                                    <input class="btn btn-lg btn-dark" type="submit" name="submit" value="Search by UserID">
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.row (nested) -->
+                </div>
+                <!-- /.col-lg-10 -->
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container -->
+    </section>
+
+    <!-- Callout -->
+    <section id="datavis">
+    <aside class="callout">
+        <div class="text-vertical-center">
+            <h1>Data Visualization Examples</h1>
+        </div>
+    </aside>
+
+    <!-- Portfolio -->
+    <section id="portfolio" class="portfolio">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 col-lg-offset-1 text-center">
+                    <hr class="small">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="portfolio-item">
+
+                                    <img style='width:30em;height:30em' class="img-portfolio img-responsive" src="static/img/example1.png" >
+
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="portfolio-item">
+
+                                    <img style='width:30em;height:30em' class="img-portfolio img-responsive" src="static/img/example2.png">
+
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="portfolio-item">
+
+                                    <img style='width:30em;height:30em' class="img-portfolio img-responsive" src="static/img/example0.png">
+    
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="portfolio-item">
+                                
+                                    <img style='width:30em;height:30em' class="img-portfolio img-responsive" src="static/img/example3.png">
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.row (nested) -->
+                </div>
+                <!-- /.col-lg-10 -->
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container -->
+    </section>
+    </section>
+
+    <!-- Call to Action -->
+    <section id="reference">
+    <aside class="call-to-action bg-primary">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <a href="https://junsu10291.github.io/CS1951ABlog/" class="btn btn-lg btn-dark">Check Our Blog</a>
+                    <a href="https://github.com/junsu10291/CS1951ABlog" class="btn btn-lg btn-dark">View Our Codes on GitHub</a>
+                    <h2>IF AND ONLY IF</h2>
+                    <h3>you want to know more about this project...</h3>
+                </div>
+            </div>
+        </div>
+    </aside>
+    </section>
+
+    <!-- jQuery -->
+    <script src="{{url_for('static', filename='js/jquery.js')}}"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{{url_for('static', filename='js/bootstrap.min.js')}}"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script>
+    // Closes the sidebar menu
+    $("#menu-close").click(function(e) {
+        e.preventDefault();
+        $("#sidebar-wrapper").toggleClass("active");
+    });
+    // Opens the sidebar menu
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#sidebar-wrapper").toggleClass("active");
+    });
+    // Scrolls to the selected menu item on the page
+    $(function() {
+        $('a[href*=#]:not([href=#],[data-toggle],[data-target],[data-slide])').click(function() {
+            if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') || location.hostname == this.hostname) {
+                var target = $(this.hash);
+                target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                if (target.length) {
+                    $('html,body').animate({
+                        scrollTop: target.offset().top
+                    }, 1000);
+                    return false;
+                }
+            }
+        });
+    });
+    //#to-top button appears after scrolling
+    var fixed = false;
+    $(document).scroll(function() {
+        if ($(this).scrollTop() > 250) {
+            if (!fixed) {
+                fixed = true;
+                // $('#to-top').css({position:'fixed', display:'block'});
+                $('#to-top').show("slow", function() {
+                    $('#to-top').css({
+                        position: 'fixed',
+                        display: 'block'
+                    });
+                });
+            }
+        } else {
+            if (fixed) {
+                fixed = false;
+                $('#to-top').hide("slow", function() {
+                    $('#to-top').css({
+                        display: 'none'
+                    });
+                });
+            }
+        }
+    });
+    </script>
+
+</body>
+
+</html>

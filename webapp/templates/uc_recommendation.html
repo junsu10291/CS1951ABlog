@@ -1,0 +1,109 @@
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href= "{{url_for('static', filename='css/bootstrap.css')}}">
+
+    <!-- Custom CSS -->
+
+
+    <!-- Custom Fonts -->
+    <link rel="stylesheet" type="text/css" href= "{{url_for('static', filename='font-awesome/css/font-awesome.min.css')}}">
+    <link rel="stylesheet" type="text/css" href= "//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://d3js.org/d3.v4.min.js"></script>
+    <script type="text/javascript" src="{{url_for('static', filename='js/protect.js')}}"></script> 
+    <style type="text/css">
+        #chart {
+            margin-left: 40px;
+            height: 506px;
+        }
+
+        form {
+            margin-left: 100px;
+            margin-top: 40px;
+        }
+
+        text {
+            font: 10px sans-serif;
+        }
+
+        button {
+            margin-left: 100px;
+        }
+
+        .dot {
+            stroke: #111;
+            fill: #ddd;
+        }
+
+        .axis path, .axis line {
+            fill: none;
+            stroke: #000;
+            shape-rendering: crispEdges;
+        }
+
+        .label {
+            fill: #777;
+        }
+
+        .year.label {
+            font: 500 196px "Helvetica Neue";
+            fill: #ddd;
+        }
+
+        .year.label.active {
+            fill: #aaa;
+        }
+
+        .overlay {
+            fill: none;
+            pointer-events: all;
+            cursor: ew-resize;
+        }
+        
+        .polygons {
+          fill: none;
+          stroke: #000;
+          stroke-width: 1;
+        }
+        </style>
+
+</head>
+     <body>
+     
+    <div class="row" style="margin: 0 0 0 0">
+        <h1>Recommendations based on user clustering data:</h1>
+    </div>
+
+    <div class="row" style="margin: 0 0 0 0">
+        <div class="col-md-6"> 
+        <p>Your User-ID: {{recommendations.user_id}}
+        </br>Best (User)Cluster (based on your query): {{recommendations.best_cluster}}
+        </p>
+
+         {% for i in range(20)%}
+                <strong>{{i+1}}. {{recommendations['name'][i]}}</strong> </br> Category: {{recommendations['category'][i]}} </br> Address: {{recommendations['address'][i]}} </br></br>
+        {% endfor %}
+        </div>
+
+        <div class="col-md-6">
+            <div>
+                <form>
+                    User Id: <input type="text" id="user"><br>
+                </form>
+
+                <p>
+                    <button onclick="onIdSearch()"> Find Restaurants! </button>
+                </p>
+                <p id="chart"></p>
+        
+            </div>
+            <a href="/">Go Back To HomePage</a>
+        </div>
+    </div>
+
+
+     </body>
+
+
+
+</html>

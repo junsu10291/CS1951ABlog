@@ -1,10 +1,16 @@
 # 5/10/2017 (Wednesday) Final Blog Post 
+
 Using the tools we have discussed previously, such as TFIDFVectorizer and LSA, we looked for various ways of k-means clustering on reviews. Previously, we used one review as one vector for the clustering, which resulted in decent clustering. So we did k-means clustering on the restaurants with similar methodology--we grouped the review texts by restaurants and processed the clustering. The clustering resulted in a surprisingly good categorization of restaurants. The results shows that clustering is generally based on specific cuisines, but contains much richer information than can be found in typical cuisine groupings:
+
 <img src="rest_topterms.png" width="800" height="400">
 <img src="rest_cluster.png" width="800" height="400">
+
 The clustering gives deeper depth of analysis than typical cusine categoriziation. For example, “korean” cluster is grouped together with other meat categories: bbq, brisket, ribs, pork. This shows that how clustering based on texts can be better than simple categorization, since typical Korean food is definitely not limited to meats, but the majority of Korean restaurants in the United States are centered around bbq-ish themes. User clustering is done in the same way which groups reviews by user and process the clustering.
+
 ### Web Application
-Based on the restaurant and user clusters, we built a user interactive web application that recommends restaurants with Flask. User can enter either keywords or user's ID. If keywords are entered, we give list of restaurants in the same restaurant cluster, ordered by ratings. If user ID is entered, we give list of restaurants in the same user cluster, which has similar tastes with the given user, also ordered by rating. Following link gives instructions on how to run the application locally.
+
+Based on the restaurant and user clusters, we built a Flask-based user interactive web application that recommends restaurants. User can enter either keywords or user's ID. If keywords are entered, we give list of restaurants in the same restaurant cluster, ordered by ratings. If user ID is entered, we give list of restaurants in the same user cluster, which has similar tastes with the given user, also ordered by rating. Following link gives instructions on how to run the application locally.
+
 <https://github.com/junsu10291/CS1951ABlog/tree/master/webapp>
 <img src="webapp.png" width="800" height="400">
 

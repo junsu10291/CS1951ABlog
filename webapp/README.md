@@ -1,4 +1,4 @@
-README
+Web Application with Flask
 
 Recommendation System solely based on Yelp review texts.
 
